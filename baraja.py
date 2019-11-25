@@ -25,3 +25,33 @@ def mezclar(b):
         b[al_azar] = aux
 
     return b
+
+class Baraja():
+    naipes = []
+    __palos = ['o', 'c', 'e', 'b']
+    __cartas = ['A', '2', '3', '4', '5', '6', '7', 'S', 'C', 'R']
+
+    def __init__(self):
+        self.naipes = []
+        for palo in _palos:
+            for carta in _cartas:
+                self.naipes.append(carta + palo)
+
+    def elige_carta(self, i):
+        return random.randint(0, len(self.naipes)-1)
+
+    def mezclar(self):
+        for i in range(len(self.naipes)):
+            #Elegimos carta de intercambio al azar
+            al_azar = self.elige_carta(i, len(self.naipes))
+
+            #Cambiamos la carta por orden (i) por la carta elegida al azar
+            aux = self.naipes[i]
+            self.naipes[i] = self.naipes[al_azar]
+            self.naipes[al_azar] = aux
+
+    def repartir(self, mano, jugadores):
+        pass
+
+
+        
