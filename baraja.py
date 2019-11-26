@@ -34,7 +34,7 @@ class Baraja():
     def __init__(self):
         self.naipes = []
         for palo in _palos:
-            for carta in _cartas:
+            for carta in self.__cartas:
                 self.naipes.append(carta + palo)
 
     def elige_carta(self, i):
@@ -51,7 +51,15 @@ class Baraja():
             self.naipes[al_azar] = aux
 
     def repartir(self, mano, jugadores):
-        pass
+        res = []
+        for j in range(jugadores):
+            res.append([])
 
+        for c in range(mano):
+            for item in res:
+                carta = self.naipes.pop(0)
+                item.append(carta)
+
+        return res
 
         
