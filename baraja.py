@@ -62,4 +62,13 @@ class Baraja():
 
         return res
 
+    def repartirF(self, mano, jugadores):
+        jugadas = []
+        for i in range(jugadores):
+            jugadas.append([])
+            for j in range(mano):
+                jugadas[i].append(self.naipes[j*jugadores+i])
+        cartas = mano * jugadores
+        self.naipes = self.naipes[cartas:]
+        return jugadas
         
