@@ -43,7 +43,7 @@ class Baraja():
     def mezclar(self):
         for i in range(len(self.naipes)):
             #Elegimos carta de intercambio al azar
-            al_azar = self.elige_carta(i, len(self.naipes))
+            al_azar = self.elige_carta(i)
 
             #Cambiamos la carta por orden (i) por la carta elegida al azar
             aux = self.naipes[i]

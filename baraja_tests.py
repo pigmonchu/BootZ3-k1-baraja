@@ -8,8 +8,6 @@ def mi_eligecarta(i, longitud):
     else:
         return i+1
 
-def class_eligecarta(self, i, longitud):
-    return mi_eligecarta(i, longitud)
 
 class BarajaFuncionalTest(unittest.TestCase):
 
@@ -30,6 +28,8 @@ class BarajaFuncionalTest(unittest.TestCase):
         b = baraja.mezclar(b)
         self.assertEqual(b, mezclada)
 
+def class_eligecarta(self, i):
+    return mi_eligecarta(i, len(self.naipes))
 
 class BarajaObjetoTest(unittest.TestCase):
     def test_crear_baraja(self):
@@ -51,6 +51,12 @@ class BarajaObjetoTest(unittest.TestCase):
         self.assertEqual(b.naipes[39], '2o')
         self.assertEqual(b.naipes[10], '2c')
         self.assertEqual(b.naipes[20], '2e')
+
+    def test_mezclar_sin_comprobar_orden(self):
+        b = baraja.Baraja()
+        b.mezclar()
+
+        self.assertEqual(len(b.naipes), 40)
 
     def test_repartir_baraja(self):
         b = baraja.Baraja()
